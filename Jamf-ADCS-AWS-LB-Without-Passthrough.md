@@ -1,4 +1,4 @@
-# Jamf ADCS Connector using AWS Application Load Balancer
+# Configure AWS Application Load Balancer without using TLS Passthrough for Jamf ADCS Connector
 
 This guide aims to assist in deploying the Jamf AD CS connector behind an application load balancer in AWS, detailing steps to export the server certificate from the IIS server created by the ADCS Connector installation tool and import it into AWS ACM for use on the load balancer.
 
