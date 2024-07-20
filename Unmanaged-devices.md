@@ -37,7 +37,7 @@ If remote or physical access to the device is available, you can also unmanage a
 ### Steps:
 1. Open Terminal on the target computer, or remotely access it via SSH.
 2. Execute the following command to remove all Jamf management framework components installed by Jamf Pro:
-sudo /usr/local/bin/jamf removeFramework
+   - sudo /usr/local/bin/jamf removeFramework
 
 **Outcome**: This will remove the Jamf management framework, ensuring that Jamf Pro can no longer perform management tasks or communicate with the computer.
 
