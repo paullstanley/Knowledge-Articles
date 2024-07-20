@@ -30,6 +30,26 @@ This alternative method ensures that the device's management status is accuratel
 
 **Outcome**: Selecting this option will unmanage the device and the inventory record will accurately reflect the device's unmanaged status.
 
+### Method 3: Using the API to Update Management Settings
+
+The API provides a way to programmatically update management settings, useful for managing devices in bulk or automating management tasks.
+
+#### Example Request:
+```bash
+curl --request PATCH \
+     --url https://yourserver.jamfcloud.com/api/v1/computers-inventory-detail/<ID> \
+     --header 'accept: application/json' \
+     --header 'content-type: application/json' \
+     --data '
+{
+  "general": {
+    "managed": false
+  }
+}
+```
+
+Note: Replace <ID> with the actual ID of the computer. This method will change the device’s management status to unmanaged and reflect this change in the inventory record.
+
 ## Unmanaging via Command Line
 
 If remote or physical access to the device is available, you can also unmanage a computer using command-line operations:
