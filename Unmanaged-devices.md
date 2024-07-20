@@ -1,4 +1,4 @@
-# Internal Knowledge Article: Understanding Device Unmanagement in Jamf Pro
+# Understanding the Different Methods of Unmanaging Devices
 
 ## Overview
 
