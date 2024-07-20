@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document provides comprehensive instructions on unmanaging devices in Jamf Pro while retaining their inventory records. It clarifies common misconceptions and details alternative methods to achieve this, ensuring accurate representation of device management status in Jamf Pro's inventory.
+This document provides instructions on various methods for unmanaging devices in Jamf Pro while retaining their inventory records. It clarifies common misconceptions and details alternative methods to achieve this, ensuring accurate representation of device management status in Jamf Pro's inventory.
 
 ## Methods to Unmanage Devices
 
