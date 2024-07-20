@@ -37,3 +37,20 @@ If remote or physical access to the device is available, you can also unmanage a
 ### Steps:
 1. Open Terminal on the target computer, or remotely access it via SSH.
 2. Execute the following command to remove all Jamf management framework components installed by Jamf Pro:
+sudo /usr/local/bin/jamf removeFramework
+
+**Outcome**: This will remove the Jamf management framework, ensuring that Jamf Pro can no longer perform management tasks or communicate with the computer.
+
+## Wiping and Unmanaging Computers
+
+Wiping a computer is more comprehensive and removes the MDM profile, Jamf management framework, all settings, and applications installed by Jamf Pro.
+
+### Methods:
+- **Manual Erasure**: Navigate to System Settings > General > Transfer or Reset > Erase All Content and Settings.
+- **Remote Command**: Send the **Wipe Computer** remote command from Jamf Pro.
+
+For further details, refer to the [Erase Apple devices in Apple Platform Deployment](https://learn.jamf.com/en-US/bundle/jamf-pro-documentation-11.7.0/page/Unmanaging_Computers.html).
+
+## Conclusion
+
+Understanding these methods and their outcomes is essential for effectively managing devices within Jamf Pro. The described methods address specific needs for unmanaging devices while maintaining accurate inventory records. For additional support, refer to Jamf Pro's official documentation or contact your support line.
