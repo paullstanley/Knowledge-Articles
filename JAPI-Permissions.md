@@ -1,27 +1,7 @@
-# How to identify and configure required permissions for Jamf Pro API Roles and Clients.
+# How to identify required permissions for Jamf Pro API Roles and Clients.
 
 ---
-
-## Issue
-When configuring **Jamf Pro API Clients** or **Roles**, it can be unclear which permissions are required to access specific endpoints. Without knowing the exact privileges, API requests may fail with authorization errors.
-
----
-
-## Environment
-- **Jamf Pro** (Cloud or On-Premise)
-- **Jamf Pro API** (v1 or newer)
-- Admin access to Swagger documentation (`/api/doc`)
-- Shell access to run scripts
-
----
-
-## Cause
-Jamf’s API requires specific permissions for each endpoint, defined by the `x-required-privileges` field. However, these permissions are not always readily visible or easy to compile manually, especially across many endpoints.
-
----
-
-## Resolution
-### Step 1: Using Swagger Documentation
+### Option 1: Using Swagger Documentation
 Jamf Pro's built-in Swagger documentation lists the required permissions for each endpoint clearly under the `x-required-privileges` field.
 
 **Access Swagger Documentation:**
@@ -32,7 +12,7 @@ The permissions are located at the bottom of each API endpoint definition.
 
 ---
 
-### Step 2: Automating Permissions Extraction
+### Option 2: Automating Permissions Extraction
 To automate identifying these permissions, use the following script:
 
 🔗 [JAPI-Privilege-Checker.sh](https://github.com/paullstanley/JamfAPI-PrivilegesChecker/blob/main/JAPI-Privilege-Checker.sh)
