@@ -1,12 +1,3 @@
-# Knowledge Article: Jamf Pro API Permissions Guide
-
----
-
-## Meta
-`api_permissions`, `jamf_api`, `jamf_permissions`, `swagger`, `jamf_pro`, `endpoint_permissions`, `jamf_api_roles`, `privileges_checker`, `automation`
-
----
-
 ## Short Description
 How to identify and configure required permissions for Jamf Pro API Roles and Clients.
 
