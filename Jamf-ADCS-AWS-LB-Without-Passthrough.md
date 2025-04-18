@@ -23,7 +23,14 @@ For a reverse proxy/ALB setup, it's necessary to upload the same server cert use
 2. Open IIS Manager. You can use `Windows + R` and type `inetmgr`, or search for IIS.
 3. In the left pane, expand the site (probably the only one), click **Sites**, then select **AdcsProxy**.
 4. In the right pane, under Actions, click on **Bindings**.
+
+<img width="680" alt="Identifying the Server Certificate" src="https://github.com/user-attachments/assets/8239cca3-3ecd-490d-ba1e-8879d3d8a4a5" />
+
+
 5. Select the HTTPS binding, click **Edit**, then click **View** next to the SSL Certificate to see the certificate details.
+
+<img width="867" alt="Identifying Certs Step 7" src="https://github.com/user-attachments/assets/0b2dbf67-4880-4ea6-9261-82a47fbb3258" />
+
 
 ## Exporting the Server Certificate
 
