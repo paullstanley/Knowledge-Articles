@@ -4,6 +4,8 @@ This guide aims to assist in deploying the Jamf AD CS connector behind an applic
 
 ## Architecture Overview
 
+<img width="1060" alt="Architecture Overview" src="https://github.com/user-attachments/assets/b397ab53-3497-4273-a841-51f002e4853a" />
+
 **Note**: This guide does not include configuring or deploying an AWS load balancer.
 
 ### Requirements:
