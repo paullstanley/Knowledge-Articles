@@ -36,20 +36,49 @@ For a reverse proxy/ALB setup, it's necessary to upload the same server cert use
 
 1. Open `mmc` (Windows + R and type `mmc`).
 2. Go to **File → Add/Remove Snap-In**.
+
+<img width="335" alt="Exporting the Server Certificate" src="https://github.com/user-attachments/assets/31714ddd-b60d-4fdf-9ed1-37750bcd5706" />
+
+
 3. Select **Certificates** and click **Add**.
+
+<img width="428" alt="Exporting the Server Certificate step 3" src="https://github.com/user-attachments/assets/e851b946-efc5-429a-986e-148e29b5ce65" />
+
 4. Choose **Computer Account**, click **Next**, then select **Local Computer** and click **Finish** and then **OK**.
+
+<img width="741" alt="Exporting the Server Certificate step 4" src="https://github.com/user-attachments/assets/68c04b0e-7459-4364-8366-1b0d57c9e2af" />
+
 5. Expand **Certificates (Local Computer)** in the left pane.
 6. Navigate to **Personal → Certificates**.
 7. Locate the certificate (usually the fqdn of the ADCS connector host), right-click, select **All Tasks → Export**.
+
+<img width="599" alt="Exporting the Server Certificate step 7" src="https://github.com/user-attachments/assets/6816a6d6-ec2f-433d-b0fa-6ef1c7afb078" />
+
 8. Follow the wizard to export the certificate with the private key and all extended properties. Set a memorable password as you'll need it later.
+<img width="319" alt="Exporting the Server Certificate step 9" src="https://github.com/user-attachments/assets/9a55d07c-da8e-496a-be68-0fb0cca3e4a7" />
+<img width="283" alt="Exporting the Server Certificate step 10" src="https://github.com/user-attachments/assets/f149f2f6-4fbd-4482-8b98-fc80fa476df7" />
+<img width="288" alt="Exporting the Server Certificate step 11" src="https://github.com/user-attachments/assets/f3a5c21b-eb4b-4968-9f32-158b991879ff" />
+<img width="297" alt="Exporting the Server Certificate step 13" src="https://github.com/user-attachments/assets/0bdebc08-f606-4b0e-9818-e256a77b7bb9" />
+
+
 
 ## Converting the pfx for use with AWS ACM
 
-1. Convert the server certificate from pfx to pem format using OpenSSL commands:
-   - Export the key and remove the password.
-   - Export the cert.
-   - Convert the chain cer to pem.
-2. Upload them to ACM and associate the ACM cert with your load balancer.
+1. Export the key. It will ask you for a password—this was the password we set in a previous step above, and we will remove it in the next step:
+   - openssl pkcs12 -in adcs-server.pfx -nocerts -out adcs-server.key
+2. Remove the password from the key file (you will be prompted):
+   - openssl rsa -in adcs-server.key -out adcs-server-nopass.key
+   - mv adcs-server-nopass.key adcs-server.key
+3. Export the cert:
+   - openssl pkcs12 -in adcs-server.key -clcerts -nokeys -out adcs-server.crt
+4. Make sure you also have the adcs-proxy-ca.cer file from earlier steps. If you do
+not have it, you can get it from the Jamf AD CS host located in the location where you ran the .\deploy.ps1 installer, e.g. C:\JAMF\adcs-connector-1.1.0\ADCS Connector\adcs-proxy-ca.cer
+5. Convert the chain cer to pem:
+   - openssl x509 -inform der -in adcs-proxy-ca.cer -out adcs-proxy-ca.pem
+6. Now that you have a key, cert, and chain, you can use upload them to ACM, and associate the uploaded ACM cert with your load balancer!
+
+   <img width="307" alt="Converting the pfx for use with AWS ACM step 6" src="https://github.com/user-attachments/assets/6953c9a6-c172-432f-953d-7ba4253b5932" />
+
 
 ## Load Balancer Health Checks
 
