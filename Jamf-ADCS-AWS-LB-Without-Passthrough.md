@@ -94,10 +94,14 @@ not have it, you can get it from the Jamf AD CS host located in the location whe
 
 ## Load Balancer Health Checks
 
-To ensure health checks pass without the client cert:
+The load balancer does not have the client cert, so in order for health checks to
+pass, we need to change some IIS settings:
 1. Open IIS Manager, select the site.
-2. Double Click on **SSL Settings**.
-3. Uncheck **Require SSL**. Restart the site afterwards.
+2. Double Click on **SSL Settings**. 
+3. Uncheck **Require SSL**. Since we only allow traffic to the host on 443, non SSL requests will fail anyway, except for the load balancer health checks. Make sure to restart the site afterwards.
+  
+   <img width="430" alt="Load Balancer Health Checks step 4" src="https://github.com/user-attachments/assets/8feb15ec-5783-4aef-a1d2-2c1c9176399c" />
+
 
 ## Troubleshooting
 
